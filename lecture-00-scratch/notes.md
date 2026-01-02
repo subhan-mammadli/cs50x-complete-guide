@@ -32,4 +32,11 @@ print(response.output_text)
 Even though this example uses AI, the core logic applies to
 Scratch, C, Python, and every other programming language.
 
+## ✨ Unary
 
+**Unary** means working with or representing **one unit at a time**. 🟢
+
+- In programming, a **unary operation** acts on **a single value**, not two or more. 💻
+- A simple real-world example is **counting with fingers**, where each count adds **one more unit** 👆🖐️
+
+> 💡 Tip: Unary operations are like “one step at a time” — simple but powerful.
