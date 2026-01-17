@@ -79,3 +79,55 @@ Example: `1101` → 1×8 + 1×4 + 0×2 + 1×1 = 13 ✅
 
 ### 6️⃣ Quick Tip
 > Binary is like a **light switch system**: each bit = one switch (ON/OFF), and multiple switches together can represent many numbers or data.
+
+## 🔡 ASCII
+
+**ASCII** (American Standard Code for Information Interchange) is a **standard way to represent characters** using numbers. 💻
+
+### 1️⃣ How ASCII Works
+- Each character (letter, number, symbol) has a **unique number** assigned.  
+- Computers store characters as **numbers in binary (base-2)**.  
+- Humans usually read **decimal (base-10)** numbers, so ASCII maps numbers to characters. 🔢
+
+Example:  
+```
+
+'A' = 65 (decimal) = 01000001 (binary)
+'a' = 97 (decimal) = 01100001 (binary)
+
+```
+
+---
+
+### 2️⃣ Uppercase vs Lowercase Letters
+- Difference between uppercase and lowercase letters is **always 32** in decimal.  
+- Why?  
+```
+
+'A' = 65
+'a' = 97
+Difference = 97 - 65 = 32
+
+```
+- Binary view: The **6th bit** distinguishes uppercase from lowercase. 🖥️
+
+---
+
+### 3️⃣ Base-2 and Base-10 in ASCII
+| Character | Decimal (Base-10) | Binary (Base-2) |
+|-----------|-----------------|----------------|
+| A         | 65              | 01000001       |
+| B         | 66              | 01000010       |
+| a         | 97              | 01100001       |
+| b         | 98              | 01100010       |
+
+> Tip: Learning ASCII helps understand **how text is stored and processed** in computers.
+
+---
+
+### 4️⃣ Quick Note
+- All **English letters, digits, and symbols** have ASCII codes.  
+- ASCII is **one byte per character** (8 bits) → 256 possible values. 🗃️
+```
+
+---
