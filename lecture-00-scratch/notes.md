@@ -560,3 +560,110 @@ Understanding this helps with:
 - Game engines
 - Video editing
 - Graphics programming
+
+## 🔊 Audio (Sound)
+
+Sound is **vibration**.
+Computers cannot store vibrations, so they store **numbers** instead. 🔢
+
+---
+
+### 1️⃣ From Real Sound to Digital Sound
+Real-world sound:
+- Air vibrates
+- Vibrations travel as **waves**
+
+Computer representation:
+- Sound waves are **measured**
+- Measurements are turned into **numbers**
+- Numbers are stored in memory
+
+This process is called **sampling**.
+
+---
+
+### 2️⃣ Sampling Rate (How Often We Measure)
+The **sampling rate** tells us:
+- How many times per second the sound wave is measured
+
+Example:
+```
+44,100 samples per second (44.1 kHz)
+```
+
+Why 44.1 kHz?
+- Human hearing range ≈ up to 20 kHz
+- Sampling must be **higher than twice** the max frequency
+
+Higher sample rate → better sound 🎧
+
+---
+
+### 3️⃣ Bit Depth (How Precise Each Measurement Is)
+- Each sample has a **value**
+- Bit depth defines how detailed that value is
+
+Examples:
+```
+8-bit   → 256 possible values
+16-bit  → 65,536 possible values
+24-bit  → 16+ million values
+```
+
+Higher bit depth → more accurate sound, less noise
+
+---
+
+### 4️⃣ Mono vs Stereo
+- **Mono** → one audio channel
+- **Stereo** → two channels (left & right)
+
+Stereo sound stores **two sets of samples**, doubling data size.
+
+---
+
+### 5️⃣ How Audio Is Stored
+Digital audio is stored as a **sequence of samples**.
+
+Each sample:
+- Is a number
+- Stored in binary
+- Replayed quickly to recreate the wave
+
+This creates the illusion of continuous sound 🎵
+
+---
+
+### 6️⃣ Why Audio Needs Compression
+Raw audio files are large.
+
+Example (CD quality):
+```
+44,100 samples/sec
+× 16 bits
+× 2 channels
+≈ 1.4 Mbps
+```
+
+To save space, audio is compressed.
+
+---
+
+### 7️⃣ Common Audio Formats
+- **WAV** → uncompressed
+- **MP3** → lossy compression
+- **AAC** → improved lossy compression
+- **FLAC** → lossless compression
+
+Lossy compression removes sounds humans barely notice.
+
+---
+
+### 🧠 Key Insight
+> Audio is just **numbers changing over time**.
+
+Understanding this explains:
+- Music files
+- Voice calls
+- Streaming audio
+- Game sound engines
