@@ -348,3 +348,108 @@ This keeps memory efficient 🚀
 Many beginners confuse these two.
 Understanding this difference is **core computer science knowledge**.
 
+## 🎨 Color
+
+Computers represent colors using **numbers**.
+Every color you see on a screen is just a **combination of values** stored in memory. 💡
+
+---
+
+### 1️⃣ How Colors Are Represented
+Most digital screens use the **RGB color model**.
+
+**RGB** stands for:
+- **R**ed
+- **G**reen
+- **B**lue
+
+Each color is created by mixing these three base colors. 🌈
+
+---
+
+### 2️⃣ RGB Values
+- Each RGB component has a value between **0 and 255**
+- Why 255?
+  - Because one component uses **1 byte (8 bits)**
+  - 8 bits → 256 possible values (0–255)
+
+Example:
+```
+Red     → RGB(255, 0, 0)
+Green   → RGB(0, 255, 0)
+Blue    → RGB(0, 0, 255)
+White   → RGB(255, 255, 255)
+Black   → RGB(0, 0, 0)
+```
+
+---
+
+### 3️⃣ How Colors Work in Binary
+Each RGB value is stored in **binary**.
+
+Example:
+```
+255 → 11111111
+0   → 00000000
+```
+
+So:
+```
+Red → 11111111 00000000 00000000
+```
+
+This means:
+- Red = full intensity
+- Green = off
+- Blue = off
+
+---
+
+### 4️⃣ How Many Colors Are Possible?
+Each color uses:
+- 3 bytes (Red, Green, Blue)
+- 8 bits × 3 = **24 bits**
+
+Total possible colors:
+```
+256 × 256 × 256 = 16,777,216 colors
+```
+
+This is called **24-bit color** (True Color). 🎯
+
+---
+
+### 5️⃣ Hexadecimal Color Representation
+Colors are often written in **hexadecimal (base-16)**.
+
+Format:
+```
+#RRGGBB
+```
+
+Examples:
+```
+Red     → #FF0000
+Green   → #00FF00
+Blue    → #0000FF
+White   → #FFFFFF
+Black   → #000000
+```
+
+Why hex?
+- Shorter than binary
+- Easier to read than base-10
+- Maps perfectly to bytes
+
+---
+
+### 6️⃣ Key Idea
+> Color on a computer is **just math and memory**.
+> Screens turn numbers into light.
+
+Understanding color helps with:
+- Web development
+- Graphics
+- Game development
+- Low-level system thinking 🧠
+
