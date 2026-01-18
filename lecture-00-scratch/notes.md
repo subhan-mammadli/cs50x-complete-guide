@@ -667,3 +667,102 @@ Understanding this explains:
 - Voice calls
 - Streaming audio
 - Game sound engines
+## 🧩 Algorithms
+
+**Algorithm** is a **step-by-step procedure** to solve a problem.  
+Think of it as a **recipe** for the computer. 🍳
+
+---
+
+### 1️⃣ What is an Algorithm?
+- A set of **instructions** to achieve a specific goal
+- Can be applied to **any type of data**: text, images, audio, video
+- Goal: **efficient and correct results**
+
+Example: How to make tea
+1. Boil water
+2. Put tea in cup
+3. Pour water
+4. Wait 3 minutes
+5. Remove tea leaves
+
+> Each step is clear and unambiguous ✅
+
+---
+
+### 2️⃣ Why Algorithms Matter
+- Processing raw data → meaningful output
+- Good algorithms:
+  - Solve the problem correctly
+  - Do it efficiently (less time, less memory)
+- Bad algorithms:
+  - Take too long
+  - Use too much memory
+  - Produce wrong results ❌
+
+---
+
+### 3️⃣ Quality of a Program
+A **quality program** has:
+1. **Correctness**: produces correct output for all inputs ✅
+2. **Efficiency**: runs fast and uses memory wisely ⚡
+3. **Readability**: humans can understand the steps 📝
+4. **Scalability**: works well as problem size grows 📈
+
+---
+
+### 4️⃣ Real-World Example: Phone Number Directory
+Problem: Find John’s phone number in a directory with 1,000 names.
+
+**Step 1 – Naive Algorithm (Linear Search)**
+1. Start at the top
+2. Check each name one by one
+3. Stop when you find John
+
+- Steps: up to 1,000 comparisons
+- Works ✅, but slow if directory grows
+
+**Step 2 – Better Algorithm (Binary Search)**
+- Directory is sorted alphabetically
+1. Look at middle name
+2. If John < middle → search left half
+3. If John > middle → search right half
+4. Repeat until found
+
+- Steps: log2(1,000) ≈ 10 comparisons
+- Much faster for large directories ⚡
+
+---
+
+### 5️⃣ Algorithm Process (Time vs Problem Size)
+- **X-axis:** Problem size (n)  
+- **Y-axis:** Time or steps needed
+- Common patterns:
+  - **Linear (O(n))** → steps grow proportionally
+  - **Logarithmic (O(log n))** → steps grow slowly
+  - **Quadratic (O(n²))** → steps grow very fast for large n
+
+```
+
+Problem Size → 10 → 100 → 1000
+Linear      → 10  → 100 → 1000
+Logarithmic → 3   → 7   → 10
+Quadratic   → 100 → 10,000 → 1,000,000
+
+```
+
+> Tip: Choosing the right algorithm is often more important than programming skill.
+
+---
+
+### 🧠 Key Insight
+> Algorithms are the **brain** of processing.  
+> If input is data (text, image, video, audio), the algorithm decides **how efficiently and correctly** the output is produced.  
+
+---
+
+### 6️⃣ Summary
+- Algorithm = step-by-step recipe
+- Quality program = correct + efficient + readable + scalable
+- Real-world example: Phone directory search
+- Time complexity helps **predict performance** before running the program
