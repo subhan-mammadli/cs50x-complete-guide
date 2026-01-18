@@ -453,3 +453,110 @@ Understanding color helps with:
 - Game development
 - Low-level system thinking 🧠
 
+## 🎬 Video
+
+A video is **not a moving image**.
+It is a **fast sequence of images** shown one after another. 🧠
+
+---
+
+### 1️⃣ What Is a Video?
+- A video is made of **frames**
+- Each frame is a **still image**
+- When frames are shown quickly, the brain sees motion
+
+Example:
+```
+24 frames per second (FPS)
+30 frames per second (FPS)
+60 frames per second (FPS)
+```
+
+More frames per second → smoother video 🎞️
+
+---
+
+### 2️⃣ What Is a Frame?
+- A frame is a **digital image**
+- Each pixel has a **color** (RGB)
+- So a frame = grid of colored pixels
+
+Example:
+```
+1920 × 1080 resolution
+= 2,073,600 pixels per frame
+```
+
+---
+
+### 3️⃣ How Frames Are Stored
+Each pixel:
+- Uses RGB
+- Typically 3 bytes (24 bits)
+
+Uncompressed size of one frame (Full HD):
+```
+2,073,600 pixels × 3 bytes ≈ 6 MB
+```
+
+That is **one single frame**.
+
+---
+
+### 4️⃣ Why Compression Is Necessary
+Raw video is **extremely large**.
+
+Example:
+```
+6 MB × 30 FPS ≈ 180 MB per second
+```
+
+This is why videos use **compression** 📦
+
+---
+
+### 5️⃣ How Video Compression Works (Core Idea)
+Video compression stores:
+1. **Key frames** (full images)
+2. **Differences** between frames
+
+If only a small part changes (like a moving face):
+- The computer stores only the **change**
+- Not the entire image again
+
+This saves huge amounts of space.
+
+---
+
+### 6️⃣ Common Video Components
+A video consists of:
+- **Video codec** (how frames are compressed)
+- **Audio track**
+- **Container** (file format)
+
+Examples:
+```
+Codec: H.264, H.265, VP9, AV1
+Container: MP4, MKV, AVI
+```
+
+---
+
+### 7️⃣ How Videos Are Played
+1. File is read from storage
+2. Data is decoded
+3. Frames are rebuilt in memory
+4. Frames are displayed rapidly on the screen
+
+All happens many times per second ⚡
+
+---
+
+### 🧠 Key Insight
+> Video is just **images + time + clever math**.
+
+Understanding this helps with:
+- Streaming platforms
+- Game engines
+- Video editing
+- Graphics programming
