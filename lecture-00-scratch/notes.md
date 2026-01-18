@@ -766,3 +766,76 @@ Quadratic   → 100 → 10,000 → 1,000,000
 - Quality program = correct + efficient + readable + scalable
 - Real-world example: Phone directory search
 - Time complexity helps **predict performance** before running the program
+
+
+
+## 💻 Coding Basics
+
+**Coding** is the process of **writing instructions** for a computer to execute.  
+It is how we **implement an algorithm** in a form the computer understands. 📝
+
+---
+### 1️⃣ Key Concepts
+
+- **Code**: A set of instructions a computer can follow.  
+- **Pseudocode**: Human-readable description of an algorithm. Not run by the computer, but helps plan the code.  
+- **Function**: A reusable block of instructions that performs a specific task.  
+- **Conditional (If / Else If / Else)**: Lets the computer **make decisions** based on True/False conditions.  
+- **Loop**: Repeats a set of instructions until a condition is met.  
+- **Boolean Expression**: A statement that is either **True** or **False**, used in conditionals and loops.  
+
+---
+
+### 2️⃣ Pseudocode Example
+
+Here is a simple example using a **phone book search**:
+
+```
+Pick up phone book
+Open to middle of phone book
+Look at page
+If person is on page
+Call person
+Else if person is earlier in book
+Open to middle of left half of book
+Go back to line 3
+Else if person is later in book
+Open to middle of right half of book
+Go back to line 3
+```
+
+---
+
+### 3️⃣ Explaining the Pseudocode
+
+1. **Functions** 🔧  
+   - `Pick up`, `Open`, `Look`, `Call person`  
+   - Each step does a **specific task**  
+   - Functions can be reused anywhere
+
+2. **Boolean Expression** ✅  
+   - `person is on page`  
+   - Evaluates to **True or False**  
+   - Determines which path the program takes
+
+3. **Conditionals** 🛤️  
+   - `If / Else If / Else` decides **what to do next**  
+   - Checks conditions in order until one is True
+
+4. **Loops** 🔁  
+   - `Go back to line 3` repeats the **Look and check process**  
+   - Continues until the person is found
+
+---
+
+### 4️⃣ How It Works Together
+
+- Computer starts with the **first function**  
+- Checks the **boolean condition**  
+- Chooses the correct **conditional branch**  
+- Repeats using the **loop** if necessary  
+- Ends when the goal is reached ✅
+
+> Tip: All programs are just combinations of **functions + conditionals + loops + boolean expressions**.  
+> Mastering these basics lets you implement any algorithm.
+
