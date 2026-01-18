@@ -839,3 +839,46 @@ Go back to line 3
 > Tip: All programs are just combinations of **functions + conditionals + loops + boolean expressions**.  
 > Mastering these basics lets you implement any algorithm.
 
+Harika, Lecture 0 seviyesinde **Compiler** kavramını sade ve rehber tarzında açıklayalım. 🔹
+
+---
+
+
+## 🏗️ Compiler 
+
+A **compiler** is a program that **translates code written by humans into machine code** (0s and 1s) so the computer can understand it. 💻
+
+---
+
+### 1️⃣ Why Do We Need a Compiler?
+- Computers only understand **binary (0 and 1)**  
+- Humans write code in **high-level languages** (Python, C, Java)  
+- The compiler **bridges the gap** between human language and machine language
+
+---
+
+### 2️⃣ How It Works Step by Step
+1. **Source code** → the code you write in a programming language  
+2. **Lexical analysis** → breaks code into meaningful pieces (tokens)  
+3. **Syntax analysis** → checks rules of the language (grammar)  
+4. **Semantic analysis** → checks meaning (does this make sense?)  
+5. **Optimization** → makes code run faster / use less memory  
+6. **Code generation** → outputs **machine code (0s and 1s)**
+
+> Example:  
+```c
+int x = 5;
+````
+
+* Compiler converts this line into a series of 0s and 1s the CPU can execute
+
+---
+
+### 3️⃣ Key Insight
+
+> The compiler is like a **translator and teacher combined**:
+> It turns your human-readable code into something the computer can follow **step by step**.
+
+* Without compilers, **programming would be extremely difficult**
+* It lets us **write in readable languages** and still run programs efficiently
+
