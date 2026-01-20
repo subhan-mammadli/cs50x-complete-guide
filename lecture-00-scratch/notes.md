@@ -882,3 +882,135 @@ int x = 5;
 * Without compilers, **programming would be extremely difficult**
 * It lets us **write in readable languages** and still run programs efficiently
 
+## 🐱 Scratch
+
+![Scratch Interface](assets/scratch-interface.png)
+
+---
+
+### 👋 Hello World
+
+Our **first program** in Scratch is simple but important.
+
+![Hello world](assets/hello-world.png)
+
+* **Say("Hello World")**
+
+  * The **Say** block is like a **function**
+  * `"Hello World"` is the **argument** of the function
+
+We can visualize this in **Input → Algorithm → Output** form:
+
+```
+Input: "Hello World" (user wants to display)
+Algorithm: Say block
+Output: "Hello World" bubble
+```
+
+![Hello, You Program](assets/hello-you.png)
+
+Now, let’s make it interactive:
+
+* **Ask and Wait** block prompts the user for input (like your name)
+* The **answer** variable stores this input
+* **Say(answer)** can now display the input
+* To make it more personal, use **Join** to combine text:
+
+```
+Join("Hello, ", answer) → Say("Hello, David")
+```
+
+> 💡 **Return Values**: Input returns information to the program, which we can use elsewhere.
+> Example: User inputs their name → stored in `answer` → displayed using `Say` block.
+
+**Input → Algorithm → Output** example:
+
+| Input               | Algorithm             | Output         |
+| ------------------- | --------------------- | -------------- |
+| "What's your name?" | Ask and Wait → answer | "David"        |
+| "hello, answer"     | Join → Say            | "Hello, David" |
+
+---
+
+### 🐾 Meowing Cat Example
+
+We want the cat to **meow 3 times**.
+
+![Meowing Program](assets/meow.png)
+
+* This works, but it’s **repetitive**
+* Writing `Meow()` + `Wait 2 seconds` **3 times manually** is not efficient
+
+Instead, we use the **Repeat** block:
+
+![Meowing(Repeat)](assets/meow-repeat.png)
+
+* Cleaner code, same effect ✅
+
+---
+
+### 🛠️ Creating Functions (Custom Blocks)
+
+Every time we want the cat to meow, writing long sequences is cumbersome.
+We can define a **custom block** (function):
+
+![Define Meow](assets/define-meow.png)
+
+* **Define Meow** block contains the instructions for meowing
+* Then, in the main program, we just call `Meow()`
+
+![Meow n times](assets/meow-n-times.png)
+
+* We can even add **inputs to our custom block**
+* Example: `Meow n times` → takes `n` as input
+* Inside the definition, a **Repeat block** uses the `n` variable
+* Now, we just call `Meow(3)` in the main program
+
+> ✅ Custom blocks = reusable functions = cleaner code
+
+---
+
+### ⚡ Conditionals and Boolean Expressions
+
+![If and Boolean Expressions](assets/if.png)
+
+* Place an **If block** inside a **Forever loop**
+* The If block requires a **Boolean expression** (a True/False condition)
+* Example: `If mouse is touching cat → Meow`
+
+```
+Forever
+    If <mouse touching cat?>
+        Meow
+```
+
+* **Forever loop** ensures the condition is **checked continuously**
+* Without Forever, the program would run once and stop immediately
+* This way, the cat reacts **whenever** the mouse touches it
+
+---
+
+### 🧠 Key Concepts Learned in Scratch
+
+1. **Functions / Custom Blocks**
+
+   * Reusable actions, like `Meow()` or `Say()`
+2. **Variables**
+
+   * Store values that can change (like `answer` or `n`)
+3. **Loops**
+
+   * Repeat actions: `Repeat`, `Forever`, `Repeat Until`
+4. **Conditionals**
+
+   * Make decisions: `If`, `If-Else`
+5. **Input / Output**
+
+   * `Ask and Wait` → input
+   * `Say` → output
+6. **Combining Concepts**
+
+   * Custom blocks + loops + conditionals + variables → interactive programs
+
+> Scratch is a **visual way to understand programming logic** before moving to text-based languages like Python, C, or JavaScript.
+---
