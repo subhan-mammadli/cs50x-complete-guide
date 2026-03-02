@@ -187,4 +187,47 @@ As a programmer, you will spend more time finding bugs than writing new code. `c
 > **💡 The Ultimate Learning Loop:**
 > When you encounter an unfamiliar function, look it up on `manual.cs50.io` first to understand its syntax. If your code compiles but doesn't work as expected, turn to `cs50.ai` and ask, *"Why is my loop stopping one iteration early?"*
 
+### 👋 Hello, You: Variables and Return Values
+
+In this section, we transition from merely printing static text to interacting with the user. We achieve this by capturing a **return value** from a function and storing it in a **variable**.
+
+#### 🔄 The Input-Output Machine
+
+Previously, we looked at functions that produce *side effects* (like printing text to the terminal). Now, we are exploring functions that actually give data back to our program to be used later.
+
+**Arguments $\rightarrow$ Function $\rightarrow$ Return Value**
+
+* **Argument:** The data we feed into the function (e.g., the prompt "What's your name? ").
+* **Return Value:** The specific data the function hands back to us after it finishes its job (e.g., the actual name the user typed on their keyboard).
+
+#### 💻 Code Breakdown
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string answer = get_string("What's your name? ");
+    printf("hello, %s\n", answer);
+}
+
+```
+
+#### 🧱 Key Concepts Explained
+
+* **Variables and Data Types (`string answer`):** To remember the user's input, we need to reserve a container in the computer's memory. This container is called a **variable**.
+* `string` specifies the **Data Type** (a sequence of text characters). *Note: The `string` type is explicitly provided by the `<cs50.h>` library; it is not natively built into standard C.*
+* `answer` is the identifier (the name) we chose for our variable.
+
+
+* **The Assignment Operator (`=`):** In C, a single equals sign does not mean "mathematical equality." It is the **assignment operator**. It evaluates the action on the *right* side and stores the result in the variable on the *left* side.
+* **Format Codes (`%s`):** When using `printf`, we cannot simply drop a variable inside the quotation marks. We must use a placeholder known as a **format string** or **format code**.
+* `%s` acts as a placeholder telling the compiler: "Get ready to insert a `string` here."
+* After the closing quote and a comma, we specify the variable (`answer`) that should replace the `%s` placeholder.
+
+
+
+> **💡 Aha! Moment:** The flow of execution during an assignment goes strictly from **right to left**. The `get_string` function executes first, pauses the program to wait for the user to type, and then *returns* that text. Only then is that returned text stored inside the `answer` variable.
+
 ---
