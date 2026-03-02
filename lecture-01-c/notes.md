@@ -282,4 +282,61 @@ rm hello
 
 * **`rmdir` (Remove Directory):** Deletes a folder, but **only if it is completely empty**. This is a built-in safety feature to prevent you from accidentally wiping out a folder full of your source code.
 
+## 🛤️ Conditionals and Control Flow
 
+By default, a C program executes line by line from top to bottom. **Conditionals** allow us to change this flow, creating branches in our code that only execute if specific logical conditions are met.
+
+### ⚖️ Relational and Equality Operators
+
+To compare values and make decisions, C provides several operators. These expressions will always evaluate to a boolean value: either `true` or `false`.
+
+| Operator | Name | Description |
+| --- | --- | --- |
+| `<` | **Less than** | True if the left value is strictly smaller. |
+| `<=` | **Less than or equal to** | True if the left value is smaller or the exact same. |
+| `>` | **Greater than** | True if the left value is strictly larger. |
+| `>=` | **Greater than or equal to** | True if the left value is larger or the exact same. |
+| `==` | **Equal to** | True if both values are exactly the same. |
+| `!=` | **Not equal to** | True if the values are completely different. |
+
+> **⚠️ Critical Warning (`=` vs `==`):**
+> A single equals sign `=` is the **Assignment Operator** (it *gives* a value to a variable).
+> A double equals sign `==` is the **Equality Operator** (it *asks a question:* "are these two equal?").
+> Writing `if (x = y)` instead of `if (x == y)` is one of the most common and frustrating bugs you will encounter in C!
+
+### 🔀 The if, else if, else Structure
+
+We use `if` statements to evaluate a condition. If the condition inside the parentheses `()` is `true`, the code inside the curly braces `{}` runs. We can chain multiple checks using `else if`, and provide a final catch-all outcome using `else`.
+
+*(Note as your editor: I added the missing semicolons `;` to the ends of your last two `printf` statements in the code block below, as the Clang compiler would throw an error without them!)*
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Assuming x and y have been prompted from the user earlier...
+    
+    if (x < y)
+    {
+        printf("x is less than y\n");
+    }
+    else if (x > y)
+    {
+        printf("x is greater than y\n");
+    }
+    else 
+    {
+        printf("x is equal to y\n");
+    }
+}
+
+```
+
+#### 🧠 How the Logic Works:
+
+* **Mutually Exclusive:** The program evaluates `(x < y)` first. If it evaluates to `true`, it prints the first statement and **skips the rest of the conditional block entirely**.
+* **The Chain:** If `(x < y)` is `false`, it moves down and evaluates the next link in the chain: `(x > y)`.
+* **The Catch-All:** If *none* of the previous `if` or `else if` conditions are true, the `else` block executes automatically.
+* > **💡 Insight:** Notice that `else` does not have parentheses `()`. You do not need (and cannot put) a condition next to `else`, because mathematically, if `x` is not less than `y`, and not greater than `y`, it *must* be equal to `y`.
