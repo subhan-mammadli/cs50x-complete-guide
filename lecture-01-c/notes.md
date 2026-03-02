@@ -231,3 +231,55 @@ int main(void)
 > **💡 Aha! Moment:** The flow of execution during an assignment goes strictly from **right to left**. The `get_string` function executes first, pauses the program to wait for the user to type, and then *returns* that text. Only then is that returned text stored inside the `answer` variable.
 
 ---
+You are absolutely right, my apologies! I slipped up there. As your Technical Editor, I should be keeping everything strictly in professional Technical English for your GitHub portfolio.
+
+Let's rewrite that section exactly as it should appear in your `notes.md` file.
+
+---
+
+## 💻 Terminal Commands
+
+In CS50 (and software development in general), we often interact with the computer using a **Command-Line Interface (CLI)** instead of a graphical user interface (GUI) with a mouse. These commands give us direct, powerful control over our files and directories.
+
+### 📂 Navigation Commands
+
+* **`ls` (List):** Lists the files and folders in your current directory. It allows you to see the contents of the folder you are currently "standing" in.
+* **`cd` (Change Directory):** Allows you to navigate through your computer's file system.
+* `cd folder_name` moves you into that specific child folder.
+* `cd ..` moves you up one level to the parent folder.
+
+
+
+### 📁 File & Directory Management
+
+* **`mkdir` (Make Directory):** Creates a brand new, empty folder.
+```bash
+mkdir pset1
+```
+
+
+* **`cp` (Copy):** Creates a duplicate of a file. This is highly recommended when you want to create a safe backup of your code before trying something risky.
+```bash
+cp hello.c hello_backup.c
+```
+
+
+* **`mv` (Move / Rename):** This versatile command does two distinct things depending on the context:
+* **Rename:** If you keep it in the same directory, it renames the file. (`mv old_name.c new_name.c`)
+* **Move:** If you point it to a different directory, it relocates the file. (`mv program.c ../`)
+
+
+
+### 🗑️ Deletion Commands
+
+> **⚠️ Critical Warning:** The command line does not have a "Recycle Bin" or "Trash" folder. When you use these commands, the files are deleted permanently and instantly. Always double-check what you are typing!
+
+* **`rm` (Remove):** Deletes a specific file. We frequently use this to delete old compiled programs to keep our workspace clean.
+```bash
+rm hello
+```
+
+
+* **`rmdir` (Remove Directory):** Deletes a folder, but **only if it is completely empty**. This is a built-in safety feature to prevent you from accidentally wiping out a folder full of your source code.
+
+
