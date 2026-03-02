@@ -340,3 +340,60 @@ int main(void)
 * **The Chain:** If `(x < y)` is `false`, it moves down and evaluates the next link in the chain: `(x > y)`.
 * **The Catch-All:** If *none* of the previous `if` or `else if` conditions are true, the `else` block executes automatically.
 * > **💡 Insight:** Notice that `else` does not have parentheses `()`. You do not need (and cannot put) a condition next to `else`, because mathematically, if `x` is not less than `y`, and not greater than `y`, it *must* be equal to `y`.
+## 🧱 Data Types and Variables
+
+In C, the computer needs to know exactly what kind of data you are storing so it can allocate the correct amount of memory. Each **type** of data has a corresponding **format code** for printing and a specific **CS50 library function** for getting user input.
+
+### 📋 Type Reference Table
+
+| Data Type | Description | Format Code | CS50 Input Function |
+| --- | --- | --- | --- |
+| `bool` | A Boolean value (`true` or `false`). | `%i` (0 or 1) | *N/A* |
+| `char` | A single character (e.g., 'A', '7', '!'). | `%c` | `get_char` |
+| `int` | An integer (whole number). | `%i` | `get_int` |
+| `long` | A "long" integer (used for very large numbers). | `%li` | `get_long` |
+| `float` | A floating-point number (decimal). | `%f` | `get_float` |
+| `double` | A double-precision decimal (more precise than float). | `%f` | `get_double` |
+| `string` | A sequence of characters (text). | `%s` | `get_string` |
+
+> **💡 Note on Precision:** When printing floats or doubles, you can control the number of decimal places by using `%.2f` (for 2 decimal places) instead of just `%f`.
+
+---
+
+## ➕ Syntactic Sugar: Incrementing
+
+As programmers, we frequently need to increase the value of a variable by 1 (especially in loops). C provides several ways to write this, ranging from verbose to concise. These shorthand methods are often called **syntactic sugar**.
+
+### 📈 Evolution of an Increment
+
+Suppose we start with:
+
+```c
+int counter = 0;
+
+```
+
+1. **The Long Way:**
+`counter = counter + 1;`
+*This tells the computer: "Look at the current value of counter, add 1 to it, and store the result back in counter."*
+2. **The Shorthand:**
+`counter += 1;`
+*This is functionally identical but more concise. The `+=` operator can also be used with other numbers (e.g., `counter += 5`).*
+3. **The Programmer's Way:**
+`counter++;`
+*The most common method. The `++` operator specifically means "increment by exactly 1." Conversely, `--` means "decrement by 1."*
+
+---
+
+## 🧮 Summary of Arithmetic Operators
+
+Beyond incrementing, C supports standard mathematical operations:
+
+* `+` (Addition)
+* `-` (Subtraction)
+* `*` (Multiplication)
+* `/` (Division)
+* `%` (Modulo / Remainder)
+
+> **⚠️ Integer Division Warning:** > In C, if you divide two integers (e.g., `10 / 3`), the result will be truncated to an integer (`3`), not a decimal (`3.33`). To get a decimal result, at least one of the numbers must be a `float` or `double`.
+
