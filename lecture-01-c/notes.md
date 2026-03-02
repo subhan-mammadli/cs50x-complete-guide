@@ -392,8 +392,45 @@ Beyond incrementing, C supports standard mathematical operations:
 * `+` (Addition)
 * `-` (Subtraction)
 * `*` (Multiplication)
-* `/` (Division)
+* `/` (Division)  
 * `%` (Modulo / Remainder)
 
 > **⚠️ Integer Division Warning:** > In C, if you divide two integers (e.g., `10 / 3`), the result will be truncated to an integer (`3`), not a decimal (`3.33`). To get a decimal result, at least one of the numbers must be a `float` or `double`.
+
+### 🤝 Logical Operators: The OR (`||`) Operator
+
+When taking input from a user, we often need to account for different variations of valid answers. For example, if we ask "Do you agree?", the user might type a lowercase `y` or an uppercase `Y`.
+
+Instead of writing two completely separate `if` statements, we can combine these checks using **Logical Operators**.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char c = get_char("Do you agree? ");
+
+    // Check if the character is lowercase 'y' OR uppercase 'Y'
+    if (c == 'y' || c == 'Y')
+    {
+        printf("Agreed.\n");
+    }
+    else
+    {
+        printf("Not agreed.\n");
+    }
+}
+
+```
+
+#### 🧠 Key Concepts Breakdown
+
+* **The `||` (OR) Operator:** In C, two vertical pipes `||` represent the logical **OR**. The entire `if` condition will evaluate to `true` if *at least one* of the conditions on either side of the `||` is true.
+
+* **Characters vs. Strings:** Notice that we are looking for `'y'` wrapped in **single quotes**. In C, a single `char` must always be wrapped in single quotes (`'a'`), whereas a `string` (multiple characters) is wrapped in double quotes (`"abc"`).
+
+> **⚠️ A Common Beginner Trap:**
+> It is very tempting to write your condition like this: `if (c == 'y' || 'Y')`.
+> However, **this will not work as expected in C!** The compiler treats the left and right sides of the `||` as two completely separate questions. You must explicitly state what you are comparing on *both* sides: `if (c == 'y' || c == 'Y')`.
 
