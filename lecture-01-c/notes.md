@@ -370,7 +370,6 @@ Suppose we start with:
 
 ```c
 int counter = 0;
-
 ```
 
 1. **The Long Way:**
@@ -421,7 +420,6 @@ int main(void)
         printf("Not agreed.\n");
     }
 }
-
 ```
 
 #### 🧠 Key Concepts Breakdown
@@ -433,4 +431,62 @@ int main(void)
 > **⚠️ A Common Beginner Trap:**
 > It is very tempting to write your condition like this: `if (c == 'y' || 'Y')`.
 > However, **this will not work as expected in C!** The compiler treats the left and right sides of the `||` as two completely separate questions. You must explicitly state what you are comparing on *both* sides: `if (c == 'y' || c == 'Y')`.
+
+## 🔁 Loops: Automating Repetition
+
+One of the most powerful things a computer can do is repeat a task flawlessly and instantly. In programming, we use the **DRY Principle** (Don't Repeat Yourself). Instead of writing `printf("meow\n");` three separate times, we use **Loops** to tell the computer to execute a block of code multiple times.
+
+### ⏳ The `while` Loop
+
+A `while` loop is like an `if` statement that keeps repeating as long as its condition remains `true`.
+
+> **🕵️ Mentor's Note (Bug Alert!):** > In your raw notes, you wrote `int i = 3; while (i < 3)`. If you run this, **nothing will happen!** The computer checks if `3 < 3` (which is `false`), so it skips the loop entirely. To make it run three times, we must start our counter at `0`. In Computer Science, we almost always start counting from zero!
+
+Here is the corrected, working version:
+
+```c
+int i = 0;
+while (i < 3)
+{
+    printf("meow\n");
+    i++;
+}
+
+```
+
+#### 🧠 How it Works:
+
+1. **Initialization:** We create a variable `i` (often standing for "iteration" or "index") and set it to `0`.
+2. **Condition Check:** The loop asks, "Is `i < 3`?" (Is 0 less than 3? Yes).
+3. **Execution:** It runs the code inside the curly braces `{}` and prints "meow".
+4. **Update:** `i++` increases `i` by 1 (so `i` becomes 1).
+5. **Repeat:** It goes back to step 2. Once `i` becomes 3, `3 < 3` is `false`, and the loop finally stops.
+
+---
+
+### 🏎️ The `for` Loop
+
+The `while` loop is great, but we had to write the setup (`int i = 0;`), the check (`i < 3`), and the update (`i++`) on three different lines.
+
+The `for` loop is **syntactic sugar** that elegantly condenses all three of these steps into a single, clean line of code.
+
+```c
+for (int i = 0; i < 3; i++)
+{
+    printf("meow\n");
+}
+
+```
+
+#### 🧩 Anatomy of a `for` Loop:
+
+Inside the parentheses `()`, there are three distinct statements, separated by semicolons `;`:
+
+1. **`int i = 0;` (The Start):** Executes only *once* at the very beginning. It creates our counter variable.
+2. **`i < 3;` (The Stop):** The condition evaluated *before* every single loop iteration. If true, the loop runs.
+3. **`i++` (The Step):** Executes at the very *end* of each loop iteration, right before it loops back to check the condition again.
+
+> **💡 Design Choice:** > When should you use which?
+> Use a **`for` loop** when you know *exactly* how many times you want to repeat something (like 3 meows).
+> Use a **`while` loop** when you are waiting for a specific event to happen, but you don't know how many tries it will take (e.g., `while (user_input_is_invalid)`).
 
