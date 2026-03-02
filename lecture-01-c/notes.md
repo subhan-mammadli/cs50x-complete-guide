@@ -161,3 +161,30 @@ help50 make hello
 
 This will run the compiler and provide a yellow text explanation, often pointing out exactly what syntax rule was broken.
 
+Here are the notes for these essential CS50 tools. I slightly corrected the URL for the manual (it's `manual.cs50.io`) and formatted it to fit perfectly right under your previous "Manual Pages" section!
+
+---
+### 🌐 CS50-Specific Tools: manual.cs50.io & cs50.ai
+
+While traditional `man` pages are powerful, they are written for experienced system administrators and can be incredibly dense and confusing for beginners. To solve this, CS50 provides two custom tools to accelerate your learning without giving away the answers.
+
+#### 📖 CS50 Programmer's Manual (`manual.cs50.io`)
+
+Instead of reading the raw Linux manual in the terminal, you can visit **manual.cs50.io**.
+
+* **Beginner-Friendly:** It rewrites the standard C library documentation (like `stdio.h`, `stdlib.h`, `string.h`) in plain, accessible English.
+* **Less Noise:** It filters out the advanced, complex flags and edge cases that you do not need for this course.
+* **Examples Included:** It often provides short, clear code snippets demonstrating how a function is actually used in practice.
+
+#### 🦆 The CS50 Duck Debugger (`cs50.ai`)
+
+As a programmer, you will spend more time finding bugs than writing new code. `cs50.ai` is your personal, AI-powered teaching assistant, integrated directly into the VS Code environment and available on the web.
+
+* **The Socratic Method:** Unlike ChatGPT or standard AI tools, the CS50 Duck is explicitly programmed **never to write code for you or give you the solution**. Instead, it asks you guiding questions to help you realize the mistake yourself.
+* **Rubber Ducking:** This mimics the real-world software engineering practice of "Rubber Duck Debugging"—explaining your code line-by-line to an inanimate object until you suddenly spot the logic error.
+* **Context Aware:** When you highlight code in your CS50 VS Code space and ask the Duck a question, it automatically understands the context of your file and the specific Problem Set you are working on.
+
+> **💡 The Ultimate Learning Loop:**
+> When you encounter an unfamiliar function, look it up on `manual.cs50.io` first to understand its syntax. If your code compiles but doesn't work as expected, turn to `cs50.ai` and ask, *"Why is my loop stopping one iteration early?"*
+
+---
