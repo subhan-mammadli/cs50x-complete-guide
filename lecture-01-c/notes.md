@@ -490,3 +490,32 @@ Inside the parentheses `()`, there are three distinct statements, separated by s
 > Use a **`for` loop** when you know *exactly* how many times you want to repeat something (like 3 meows).
 > Use a **`while` loop** when you are waiting for a specific event to happen, but you don't know how many tries it will take (e.g., `while (user_input_is_invalid)`).
 
+### ♾️ Infinite Loops
+
+An **infinite loop** occurs when the condition of a loop is always evaluated as **true**. This causes the code block to repeat indefinitely unless the program is manually interrupted or a `break` statement is reached.
+
+* **Logic**: By passing the boolean value `true` directly into the `while` condition, we tell the computer to never stop executing the cycle.
+* **Requirement**: To use the keyword `true` in standard C, you must include the `<stdbool.h>` library.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+    // This loop will run forever
+    while (true)
+    {
+        printf("Hello, world\n");
+    }
+}
+
+```
+
+> 💡 **Aha! Moment:** In older C standards (or if you don't include `stdbool.h`), you can achieve the same result using `while (1)`. In C, any non-zero integer is treated as **true**.
+
+### 🛑 Breaking the Cycle
+
+* **Manual Stop**: If you accidentally run an infinite loop in your terminal, use the keyboard shortcut `Ctrl + C` to kill the process.
+* **Programmatic Stop**: You can use the `break;` keyword inside the loop body to exit based on a specific internal condition (like a user inputting a certain value).
+
