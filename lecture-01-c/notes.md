@@ -519,3 +519,50 @@ int main(void)
 * **Manual Stop**: If you accidentally run an infinite loop in your terminal, use the keyboard shortcut `Ctrl + C` to kill the process.
 * **Programmatic Stop**: You can use the `break;` keyword inside the loop body to exit based on a specific internal condition (like a user inputting a certain value).
 
+## 🔁 User Input Validation with Loops
+
+When writing robust software, we cannot always trust the user to provide valid input. We use loops to **force** the program to repeat a request until the criteria are met.
+
+### 🔄 The Do-While Loop
+
+The `do-while` loop is a "post-test" loop. Unlike a standard `while` loop that checks the condition **before** running, a `do-while` loop executes the code block **at least once** before checking the condition.
+
+* **Syntax Logic**: "Do this action, *then* check if I should do it again."
+* **Use Case**: Perfect for prompting a user for a number. You need to ask at least once to see what they type!
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int n;
+    // Prompt the user at least once
+    do
+    {
+        n = get_int("Number: ");
+    }
+    // Repeat if the user provides a negative number
+    while (n < 0);
+
+    // This part only runs once n is 0 or greater
+    for (int i = 0; i < n; i++)
+    {
+        printf("meow\n");
+    }
+}
+
+```
+
+> 💡 **Aha! Moment:** Notice that `int n;` is declared **outside** the `do` block. In C, if you declare a variable inside curly braces `{ }`, it only exists within those braces (this is called **Scope**). To use `n` later in your `while` condition or `for` loop, it must be declared in the outer scope.
+
+### 🏃 The For Loop
+
+Once we have a valid positive integer `n`, we use a `for` loop for **iterative counting**.
+
+* **Initialization**: `int i = 0` (Start counting at zero).
+* **Condition**: `i < n` (Keep going as long as `i` is less than our target).
+* **Update**: `i++` (Increment `i` by 1 after each loop).
+
+> ⚠️ **Warning:** Be careful with your comparison operators! Using `i <= n` instead of `i < n` when starting at `0` will result in the loop running $n + 1$ times, which is a common "Off-by-One" error.
+
