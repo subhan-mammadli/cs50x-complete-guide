@@ -566,3 +566,72 @@ Once we have a valid positive integer `n`, we use a `for` loop for **iterative c
 
 > ⚠️ **Warning:** Be careful with your comparison operators! Using `i <= n` instead of `i < n` when starting at `0` will result in the loop running $n + 1$ times, which is a common "Off-by-One" error.
 
+## 🛠️ Functions in C
+
+Functions allow us to break our code into smaller, manageable pieces. They help us follow the **DRY (Don't Repeat Yourself)** principle and make our code much more readable.
+
+### 🧩 Anatomy of a Function
+
+A function in C consists of a **return type**, a **name**, **parameters** (inputs), and a **body**.
+
+```c
+void meow(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("meow\n");
+    }
+}
+
+```
+
+* **`void`**: The return type. `void` means the function does not return a value to the caller.
+* **`meow`**: The name of the function.
+* **`(int n)`**: The parameter. This function takes an integer as input.
+
+### 📜 Function Prototypes
+
+In C, the compiler reads your code from top to bottom. If you define a custom function *below* your `main` function, the compiler will complain that it doesn't recognize the name when it's called inside `main`.
+
+To solve this, we use a **Prototype** (a declaration) at the very top of the file.
+
+```c
+#include <stdio.h>
+
+// Function Prototype (The "Header")
+void meow(int n);
+
+int main(void)
+{
+    meow(3);
+}
+
+// Function Definition (The "Body")
+void meow(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("meow\n");
+    }
+}
+
+```
+
+### 🧠 Why use Prototypes?
+
+1. **Organization**: It allows you to keep `main` at the top of your file so anyone reading your code sees the "big picture" first.
+2. **Compiler Awareness**: It tells the compiler, "Hey, I promise a function named `meow` exists later in this file, so don't panic yet!"
+
+> 💡 **Aha! Moment:** Think of a prototype like a **table of contents** in a book. It tells the reader (compiler) what chapters (functions) exist before they actually start reading the content.
+
+### 📤 Return Values
+
+Functions can also send data back to the caller. Instead of `void`, we specify the data type being returned.
+
+```c
+int add(int a, int b)
+{
+    return a + b;
+}
+
+```
