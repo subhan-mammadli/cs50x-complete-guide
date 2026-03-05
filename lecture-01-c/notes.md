@@ -730,3 +730,57 @@ Much like the famous "Y2K" bug, the **Year 2038 problem** is caused by Unix time
 
 > 💡 **Aha! Moment:** Think of overflow like a car's odometer. If an old car only has 5 digits and reaches `99,999` miles, adding one more mile makes it flip back to `00,000`. In C, because we use "signed" integers, it flips to the negative end of the spectrum instead of zero.
 
+
+## 📉 Floating-Point Imprecision
+
+In mathematics, there are infinite numbers between 0 and 1. However, a computer has **finite memory**. Because we cannot store an infinite number of digits, the computer must eventually "round off" or approximate decimal values.
+
+### 🧩 The "Float" Limitation
+
+A `float` in C typically uses **32 bits**. To represent a decimal, it uses a system similar to scientific notation ($1.23 \times 10^4$). Because of the limited bits, it can only be precise up to about **7 decimal digits**.
+
+### 🧪 The Imprecision Experiment
+
+If you try to print a simple division like $1 / 10$ ($0.1$) to many decimal places, you will see that the computer doesn't actually store exactly $0.1$.
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    float x = 1.0;
+    float y = 10.0;
+
+    // Printing to 50 decimal places
+    printf("%.50f\n", x / y);
+}
+
+```
+
+**Expected Result:** `0.1000000000000000000000000...`
+
+**Actual Result:** `0.1000000014901161193847656...`
+
+> ⚠️ **Warning:** The "extra" digits at the end are not random; they are the result of the computer trying to represent a base-10 fraction ($1/10$) using base-2 (binary). Just as we cannot write $1/3$ perfectly in decimal ($0.333...$), computers cannot write $1/10$ perfectly in binary.
+
+### 🛡️ Mitigating the Issue: `double`
+
+If you need higher precision, you should use a **`double`**. As the name suggests, it provides "double precision" by using **64 bits** instead of 32.
+
+* **`float`**: ~7 decimal digits of precision.
+* **`double`**: ~15 decimal digits of precision.
+
+```c
+double x = 1.0;
+double y = 10.0;
+printf("%.50f\n", x / y); // Much more accurate, but still not infinite!
+
+```
+
+### 💰 Real-World Lesson: Don't use Floats for Money!
+
+Never use `float` or `double` to store currency. Small imprecisions add up over thousands of transactions (the "Banker's Error").
+
+* **The Solution:** Store money as an `int` representing the total number of **cents** (e.g., $\$9.99$ becomes `999`), and only convert to a decimal when displaying it to the user.
+
+> 💡 **Aha! Moment:** Computers are fast, but they are not magical. They are constrained by the physical "boxes" (bits) we provide them. Understanding these limits is the difference between a coder and a Computer Scientist.
