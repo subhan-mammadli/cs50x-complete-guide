@@ -635,3 +635,43 @@ int add(int a, int b)
 }
 
 ```
+
+## 💎 Constants in C
+
+As your programs grow, you will encounter "Magic Numbers"—random digits like `3.14` or `100` scattered through your code. **Constants** allow you to give these numbers a meaningful name and prevent them from being changed accidentally.
+
+### 🛡️ The `const` Keyword
+
+By adding `const` before a variable declaration, you tell the compiler that this value is **read-only**. If you try to change it later, the compiler will throw an error.
+
+* **Syntax**: `const type NAME = value;`
+* **Naming Convention**: It is a common professional standard to write constant names in **ALL_CAPS** to distinguish them from regular variables.
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    // Declaring a constant for a fixed value
+    const int DAYS_IN_WEEK = 7;
+
+    // This would cause a compiler error:
+    // DAYS_IN_WEEK = 8; 
+
+    printf("There are %i days in a week.\n", DAYS_IN_WEEK);
+}
+
+```
+
+### 🧐 Why use Constants?
+
+1. **Readability**: `if (input > LIMIT)` is much easier to understand than `if (input > 1024)`.
+2. **Maintainability**: If a value needs to change (e.g., a tax rate or a server port), you only have to change it in **one place** at the top of your code.
+3. **Safety**: It prevents "accidental" bugs where a value might be overwritten deep inside a complex loop.
+
+> 💡 **Aha! Moment:** In CS50 and beyond, you might also see `#define` used for constants. While `const` creates a real variable with a data type and a memory address, `#define` is a **preprocessor directive** that simply finds and replaces text before the code is even compiled.
+
+### 🧱 Immutability
+
+Once a `const` is initialized, its value is "carved in stone." You cannot declare a `const` and assign it a value later; it must be assigned at the moment of creation.
+
