@@ -675,3 +675,58 @@ int main(void)
 
 Once a `const` is initialized, its value is "carved in stone." You cannot declare a `const` and assign it a value later; it must be assigned at the moment of creation.
 
+
+## 🌊 Integer Overflow
+
+In C, every data type has a fixed amount of memory (bits). **Integer Overflow** occurs when you try to store a number that is larger than the maximum value the allocated bits can represent.
+
+### 💾 The Binary Limit
+
+An `int` in C typically uses **32 bits**.
+
+* One bit is used for the sign (positive or negative).
+* The remaining 31 bits represent the magnitude.
+* The maximum value for a signed 32-bit integer is $2^{31} - 1$, which is **2,147,483,647**.
+
+### 🔄 The "Wrap Around" Effect
+
+What happens if you have `2,147,483,647` and you add `1`? Instead of becoming a larger positive number, it "overflows" and wraps around to the lowest possible negative number.
+
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+int main(void)
+{
+    int n = 1;
+    for (int i = 0; i < 64; i++)
+    {
+        printf("%i\n", n);
+        sleep(1); // Wait 1 second
+        n = n * 2;
+    }
+}
+
+```
+
+> ⚠️ **Warning:** If you run the code above, you will see the numbers doubling correctly until they suddenly hit a massive negative number and eventually become `0`. This is the physical limit of the 32-bit "bucket" being exceeded.
+
+### 🛠️ Solutions: Using `long`
+
+If you need to work with numbers larger than 2 billion, you should use the `long` data type, which typically uses **64 bits**.
+
+* **64-bit Limit**: $2^{63} - 1$ (A massive number: over 9 quintillion!)
+* **Format Specifier**: When printing a `long`, use `%li` instead of `%i`.
+
+```c
+long big_number = 3000000000;
+printf("%li\n", big_number);
+
+```
+
+### 🗓️ Real-World Impact: The Y2K38 Problem
+
+Much like the famous "Y2K" bug, the **Year 2038 problem** is caused by Unix timestamps (counting seconds since 1970) being stored in 32-bit signed integers. On January 19, 2038, these counters will overflow, potentially causing global system failures.
+
+> 💡 **Aha! Moment:** Think of overflow like a car's odometer. If an old car only has 5 digits and reaches `99,999` miles, adding one more mile makes it flip back to `00,000`. In C, because we use "signed" integers, it flips to the negative end of the spectrum instead of zero.
+
