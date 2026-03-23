@@ -41,3 +41,53 @@ Professional engineering requires more than just a compiler. We utilize a suite 
 3. **Debug:** Using `debug50` to fix logical errors (bugs).
 4. **Refine:** Running `style50` and `design50` for professional-grade code.
 5. **Test & Submit:** Using `check50` and `submit50` for final verification.
+
+
+## 🛠️ Variables, Data Types, and Operators
+
+In C, we must be explicit about how we store and manipulate data. Unlike higher-level languages, C requires us to understand how data occupies memory.
+
+### 1. **Anatomy of a C Program**
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("hello, world\n");
+}
+```
+* **`int main(void)`**: This is the entry point of every C application. 
+    * `int`: The **return type**. By convention, a program returns an integer (usually `0`) to the OS to signal successful execution.
+    * `void`: The **parameter list**. This indicates that the function does not take any command-line arguments in this specific instance.
+
+### 2. **Variable Declaration and Static Typing**
+C uses **Static Typing**, meaning every variable must have a declared type that cannot change.
+> **Syntax:** `data_type variable_name = value;`
+
+**Why does C care about types?**
+At the hardware level, everything is binary (e.g., `01000001`). The **Data Type** tells the compiler how to interpret those bits:
+* As an **`int`**: The value is `65`.
+* As a **`char`**: The value is `'A'`.
+
+
+
+### 3. **The Power of Operators**
+Operators allow us to perform mathematical and logical evaluations on our variables.
+
+#### **Arithmetic Operators**
+Used for mathematical calculations. 
+* **Standard:** `+`, `-`, `*`, `/`
+* **Modulo (`%`)**: Returns the **remainder** of a division (e.g., `20 % 6` results in `2`).
+* **Syntactic Sugar (Shorthand):**
+    * `balance++` / `balance--`: Increment or decrement by 1.
+    * `balance *= 2`: Multiplies the current value by 2 and updates the variable.
+
+> ⚠️ **Integer Truncation:** If you divide two integers (e.g., `20 / 3`), C will **round down** to the nearest whole number (`6`). It does not "round"; it simply throws away the decimal.
+
+#### **Relational & Logical Operators**
+Used for control flow and decision making.
+* **Relational:** `<` (less than), `==` (is equal to), `!=` (is not equal to).
+* **Logical:**
+    * `&&` (**AND**): Both conditions must be true.
+    * `||` (**OR**): At least one condition must be true.
+    * `!` (**NOT**): Reverses the Boolean value.
