@@ -91,3 +91,82 @@ Used for control flow and decision making.
     * `&&` (**AND**): Both conditions must be true.
     * `||` (**OR**): At least one condition must be true.
     * `!` (**NOT**): Reverses the Boolean value.
+
+## Functions
+
+```c
+int balance = get_int("Balance: ");
+```
+
+The inside of brackets is function input. We are assigning the function output to balance variable. The output is integer so we have to create variable in integer type.
+
+```c
+int balance = 20;
+printf("Current Balance: $%i\n", balance);
+```
+
+%i is placeholder \
+balance is value \
+\n is new line \
+the rest is string \
+
+Numbers int(%i), float(%f) Text char(%c) string(%s)
+
+
+## 🚦 Control Flow: Conditionals and Loops
+
+Control flow structures allow our programs to make decisions and repeat tasks, moving beyond simple linear execution.
+
+### 1. **Conditionals (`if`, `else if`, `else`)**
+Conditionals evaluate a **Boolean expression** (true or false) to determine which block of code to execute.
+
+```c
+if (balance < 0)
+{
+    printf("Insufficient Funds\n");
+}
+else
+{
+    printf("Available Balance\n");
+}
+```
+* **Best Practice:** Always use curly braces `{}` even for single-line statements to prevent logical errors during future code updates.
+
+### 2. **For Loops (Counted Iteration)**
+Used when the number of iterations is known beforehand. It integrates initialization, condition, and increment into one line.
+
+```c
+for (int i = 1; i <= 30; i++)
+{
+    printf("I can count to %i\n", i);
+}
+```
+* **Structure:** `for (initialization; condition; increment)`
+* **Usage:** Ideal for iterating through a fixed range or a data set with a known size.
+
+### 3. **While Loops (Conditional Iteration)**
+Used when the number of iterations is unknown, and the loop should continue as long as a specific condition remains true.
+
+```c
+int i = 1;
+while (i <= 30)
+{
+    printf("I can count to %i\n", i);
+    i++;
+}
+```
+* **Risk:** If the condition never becomes false (e.g., forgetting `i++`), it creates an **Infinite Loop**.
+
+### 4. **Do-While Loops (Post-Condition Iteration)**
+Unique because it guarantees the code block runs **at least once** before checking the condition.
+
+```c
+int n;
+do
+{
+    n = get_int("N: ");
+}
+while (n <= 0);
+```
+* **Common Use Case:** **Input Validation**. This forces the user to provide an input before the program decides whether to ask again or proceed.
+
