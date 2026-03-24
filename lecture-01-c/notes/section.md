@@ -170,3 +170,39 @@ while (n <= 0);
 ```
 * **Common Use Case:** **Input Validation**. This forces the user to provide an input before the program decides whether to ask again or proceed.
 
+
+## 🏗️ Custom Functions and Abstraction
+
+Functions allow us to break down complex problems into smaller, manageable, and reusable pieces of code. This concept is known as **Abstraction**: we care about *what* a function does, not necessarily *how* it does it.
+
+### 1. **The Anatomy of a Function**
+A function consists of three main parts:
+* **Return Type:** The type of data the function sends back (e.g., `int`, `void`).
+* **Parameters:** The input data the function needs to operate.
+* **Side Effect:** The actual action the function performs (e.g., printing to the terminal).
+
+### 2. **Practical Example: `print_row` (from Mario-less)**
+In the Mario problem, rather than nesting loops directly in `main`, we can abstract the logic of printing a single row of bricks.
+
+**Concept:** `3` (input) $\rightarrow$ `print_row()` $\rightarrow$ `###` (output)
+
+**Implementation:**
+```c
+void print_row(int bricks)
+{
+    // Iterate 'bricks' times to print the characters
+    for (int i = 0; i < bricks; i++)
+    {
+        printf("#");
+    }
+    // Move to the next line after the row is complete
+    printf("\n");
+}
+```
+
+
+
+### 3. **Why Use Functions?**
+* **Reusability:** Write the code once, use it multiple times throughout your program.
+* **Readability:** Your `main` function becomes a high-level "to-do list" rather than a wall of complex loops.
+* **Maintainability:** If you need to change how a row is printed (e.g., using `?` instead of `#`), you only need to update the code in one place.
