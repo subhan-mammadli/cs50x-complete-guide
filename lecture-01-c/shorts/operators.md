@@ -1,9 +1,3 @@
-Bu notlar, C programlamanın mantıksal temelini oluşturuyor. Özellikle `=` ve `==` arasındaki fark, her yeni başlayan yazılımcının en az bir kez düştüğü bir tuzaktır. Senin notlarını profesyonel, temiz ve "Cheat Sheet" (İpucu Sayfası) tadında bir İngilizce formatına çevirdim.
-
-Bunu `notes/shorts.md` dosyana ekleyebilirsin:
-
----
-
 # ⚡ Shorts: Operators and Boolean Expressions
 
 Operators are the tools we use to manipulate data, while Boolean expressions allow our programs to make decisions by evaluating conditions as `true` or `false`.
