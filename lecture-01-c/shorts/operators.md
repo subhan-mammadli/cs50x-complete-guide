@@ -29,7 +29,7 @@ Used to combine multiple conditions.
 | Operator | Name | Description |
 | :--- | :--- | :--- |
 | `&&` | **Logical AND** | True only if **both** operands are true. |
-| `||` | **Logical OR** | True if **at least one** operand is true. |
+| `\|\|` | **Logical OR** | True if **at least one** operand is true. |
 | `!` | **Logical NOT** | Inverts the value (True becomes False, and vice-versa). |
 
 
