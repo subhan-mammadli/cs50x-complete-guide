@@ -49,3 +49,43 @@ While paused, the side panel displays the **State** of your program. This is ess
 * **Logic Check:** Confirming if a boolean condition is actually `true` or `false` as expected.
 
 > 💡 **Aha! Moment:** Always remember to re-compile your code with `make` before running `debug50`. If the binary is old, the debugger will point to lines that don't match your current source code!
+
+## 🛠️ The Compilation Process
+
+In C, when we run `make hello`, we aren't just "running" a script. We are triggering a **Compiler** (like `clang`) to translate our source code into machine code through four distinct stages.
+
+
+
+### 1️⃣ Preprocessing
+The **Preprocessor** looks for lines that start with a `#` (like `#include` or `#define`).
+* It literally "copies and pastes" the contents of header files (e.g., `stdio.h`) into your source code.
+* It replaces any constants or macros you've defined with their actual values.
+
+### 2️⃣ Compiling
+This stage takes the preprocessed C code and translates it into **Assembly Code**. 
+* **Assembly** is a low-level language that is one step above binary. It uses simple instructions like `mov`, `add`, or `push` that correspond directly to what the CPU can do.
+* This is where the compiler checks your **syntax** and ensures your logic follows the rules of the C language.
+
+
+
+### 3️⃣ Assembling
+The **Assembler** takes the Assembly code and converts it into **Object Code**.
+* Object code consists entirely of **Machine Code** (binary: 0s and 1s).
+* At this stage, the computer can technically understand the instructions, but if you used functions from a library (like `get_string`), the program doesn't know where those functions are yet.
+
+### 4️⃣ Linking
+The **Linker** is the final architect. It takes your object code and "links" it with the object code of the libraries you used (like the CS50 library or the Standard I/O library).
+* It combines everything into a single, standalone **Executable File** (e.g., `./hello`).
+
+> 💡 **Aha! Moment:** When you see a "Linker Error" (like `ld: symbol(s) not found`), it usually means you told the compiler to use a function, but the Linker couldn't find the actual binary code for that function!
+
+---
+
+### 📥 Summary Table
+
+| Stage | Input | Output | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Preprocessing** | `.c` Source | Expanded Source | Handle `#` directives |
+| **Compiling** | Expanded Source | `.s` Assembly | Translate C to CPU instructions |
+| **Assembling** | `.s` Assembly | `.o` Object Code | Convert instructions to Binary |
+| **Linking** | `.o` Object Code | Executable | Merge code with libraries |
