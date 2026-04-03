@@ -89,3 +89,77 @@ The **Linker** is the final architect. It takes your object code and "links" it 
 | **Compiling** | Expanded Source | `.s` Assembly | Translate C to CPU instructions |
 | **Assembling** | `.s` Assembly | `.o` Object Code | Convert instructions to Binary |
 | **Linking** | `.o` Object Code | Executable | Merge code with libraries |
+
+
+## 🧱 Data Types & Memory Allocation
+
+In C, every variable has a specific **Data Type**, which determines how much space it occupies in the computer's **RAM** (Random Access Memory). Understanding these sizes is crucial for memory management.
+
+### 📐 Standard Type Sizes
+* **`bool`**: 1 byte (Stores `true` or `false`).
+* **`char`**: 1 byte (Stores a single character, like `'A'`).
+* **`int`**: 4 bytes (Stores whole numbers).
+* **`float`**: 4 bytes (Stores decimal numbers).
+* **`long`**: 8 bytes (Stores larger integers).
+* **`double`**: 8 bytes (Stores high-precision decimals).
+
+---
+
+## 📊 Arrays: Organized Data
+
+An **Array** is a data structure that stores multiple values of the **same data type** in **contiguous** (back-to-back) memory locations.
+
+### 🔢 Zero-Based Indexing
+In C, we access elements in an array using an **index**. It is critical to remember that counting starts at **0**.
+
+```c
+// Declaring an array of 3 integers
+int scores[3];
+
+// Assigning values via indexing
+scores[0] = 72; // The 1st element
+scores[1] = 73; // The 2nd element
+scores[2] = 33; // The 3rd element
+```
+
+### 🧠 Memory Representation
+If you visualize RAM as a series of boxes, an `int scores[3]` occupies a block of **12 bytes** (3 elements $\times$ 4 bytes each). Because they are contiguous, the computer can jump to any element instantly if it knows the starting address.
+
+---
+
+## 🛠️ The `scores.c` Evolution
+
+The `scores.c` example in Lecture 2 demonstrates why arrays are superior to individual variables when handling repetitive data.
+
+### ❌ The Inefficient Way
+Using separate variables like `int score1, score2, score3;` is not **scalable**. If you had 1,000 scores, your code would become unmanageable.
+
+### ✅ The Efficient Way (Arrays + Loops)
+By combining an array with a `for` loop, we can iterate through data dynamically.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int n = get_int("How many scores? ");
+    int scores[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        scores[i] = get_int("Score %i: ", i + 1);
+    }
+
+    // Calculating the average
+    float total = 0;
+    for (int i = 0; i < n; i++)
+    {
+        total += scores[i];
+    }
+
+    printf("Average: %.2f\n", total / n);
+}
+```
+
+> 💡 **Aha! Moment:** To avoid **Integer Division** (where `10 / 3` would incorrectly result in `3`), we ensure the `total` variable is a `float`. This forces C to perform floating-point arithmetic, giving us a precise decimal result.
