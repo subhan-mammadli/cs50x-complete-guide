@@ -163,3 +163,65 @@ int main(void)
 ```
 
 > 💡 **Aha! Moment:** To avoid **Integer Division** (where `10 / 3` would incorrectly result in `3`), we ensure the `total` variable is a `float`. This forces C to perform floating-point arithmetic, giving us a precise decimal result.
+
+
+## 🧵 Strings in C
+
+In C, a **String** is not a native data type like `int` or `char`. Instead, it is a **`char` array**: a continuous sequence of characters stored in memory.
+
+### 🔤 Characters vs. Strings
+* A `char` is a single symbol (like `'A'`) and takes up **1 byte**.
+* A `string` is a collection of these bytes ending with a special marker.
+
+```c
+string name = "HI!";
+```
+
+### 🛑 The Null Terminator (`\0`)
+How does the computer know where a string ends? Since an array has a fixed size, C uses a special character called the **Null Terminator**, represented as `\0`.
+
+* **NUL Character:** The byte `00000000` (all bits zero).
+* **Memory Impact:** If you have a string `"HI!"`, it actually occupies **4 bytes** in memory, not 3.
+    * `[H] [I] [!] [\0]`
+
+
+
+> 💡 **Aha! Moment:** When you use `strlen()`, it counts every character *until* it hits `\0`. This is why we don't need to tell `printf` how long a string is; it just keeps printing until it sees the null terminator.
+
+---
+
+## 🏗️ Memory Visualization
+
+When we declare `string s = "HI!";`, the memory looks like this:
+
+| Address | Value | Character |
+| :--- | :--- | :--- |
+| `0x100` | `72` | `H` |
+| `0x101` | `73` | `I` |
+| `0x102` | `33` | `!` |
+| `0x103` | `0` | `\0` |
+
+### 🛠️ String Manipulation (string.h)
+To work with strings effectively, we include the `<string.h>` library, which gives us access to vital functions:
+* `strlen()`: Calculates the length of the string (excluding `\0`).
+* `strcmp()`: Compares two strings (returns `0` if they are identical).
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("Input: ");
+    printf("Output: ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        printf("%c", s[i]);
+    }
+    printf("\n");
+}
+```
+
+> ⚠️ **Design Tip:** Notice the loop `for (int i = 0, n = strlen(s); i < n; i++)`. By declaring `n = strlen(s)` inside the initialization, we calculate the length **once**. If we put `strlen(s)` inside the condition (`i < strlen(s)`), the computer would re-calculate the length every single time the loop repeats, making it very slow!
+
