@@ -225,3 +225,89 @@ int main(void)
 
 > ⚠️ **Design Tip:** Notice the loop `for (int i = 0, n = strlen(s); i < n; i++)`. By declaring `n = strlen(s)` inside the initialization, we calculate the length **once**. If we put `strlen(s)` inside the condition (`i < strlen(s)`), the computer would re-calculate the length every single time the loop repeats, making it very slow!
 
+## 🔠 String Manipulation: `uppercase.c`
+
+Transforming text (e.g., from lowercase to uppercase) is a classic example of how we can manipulate **char arrays** by iterating through each character and modifying its underlying **ASCII** value.
+
+### 🔢 The ASCII Logic (Under the Hood)
+In the ASCII table, lowercase letters and uppercase letters are separated by a fixed numerical offset of **32**.
+* `'a'` is **97**
+* `'A'` is **65**
+* **Calculation:** $97 - 32 = 65$
+
+
+
+If we were doing this manually, we could subtract `32` from a lowercase `char` to get its uppercase equivalent. However, C provides more robust tools.
+
+---
+
+## 🛠️ Using `ctype.h`
+
+Instead of memorizing math offsets, we use the standard library `<ctype.h>`. This library provides several boolean and transformation functions that make our code more readable and less prone to errors.
+
+### 📋 Key Functions in `ctype.h`
+* `islower(char c)`: Returns `true` if the character is lowercase.
+* `isupper(char c)`: Returns `true` if the character is uppercase.
+* `toupper(char c)`: Returns the uppercase version of the character (if it isn't already).
+* `isalpha(char c)`: Returns `true` if the character is an alphabetical letter.
+
+---
+
+## 💻 Code Evolution: `uppercase.c`
+
+### 1️⃣ Version 1: Manual Logic & Refinement
+In the initial version, we check if a character is lowercase before transforming it.
+
+```c
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h> // Required for islower and toupper
+
+int main(void)
+{
+    string s = get_string("Before: ");
+
+    printf("After:  ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        // If the character is lowercase, convert it
+        if (islower(s[i]))
+        {
+            printf("%c", toupper(s[i]));
+        }
+        // Otherwise, print it as is (numbers, symbols, or already uppercase)
+        else
+        {
+            printf("%c", s[i]);
+        }
+    }
+    printf("\n");
+}
+```
+
+### 2️⃣ Version 2: Optimized & Clean
+The `toupper()` function is actually "smart." If you pass it a character that is already uppercase or a symbol (like `!`), it simply returns it unchanged. This allows us to simplify our loop significantly.
+
+```c
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(void)
+{
+    string s = get_string("Before: ");
+
+    printf("After:  ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+       // toupper handles the logic for us!
+       printf("%c", toupper(s[i]));
+    }
+    printf("\n");
+}
+```
+
+> 💡 **Aha! Moment:** Notice the `int i = 0, n = strlen(s)` syntax in the `for` loop. We calculate the length of the string **once** and store it in `n`. This is a crucial optimization; otherwise, `strlen` would run every single time the loop repeats, which is inefficient for long strings!
+
