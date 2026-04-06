@@ -365,14 +365,46 @@ int main(int argc, string argv[])
 
 ---
 
-## 🚦 Exit Status (Exit Codes)
+## 🚦 Exit Status & `echo $?`
 
-Every C program returns an integer value when it finishes, known as an **Exit Status**. This tells the operating system whether the program succeeded or failed.
+Every C program returns an **Exit Status** (also known as a Return Code) to the operating system upon completion. This integer value acts as a signal to tell the system whether the program executed successfully or encountered an error.
 
-* **`return 0`**: Everything went well (Success).
-* **Non-zero value (e.g., `return 1`)**: Something went wrong (Error).
+### 🔢 The `return` Value in `main`
+The `int` at the beginning of `int main(void)` indicates that the function must return an integer.
+* **`return 0`**: The universal signal for **Success**. It tells the system, "Everything went as planned."
+* **Non-zero (e.g., `return 1`)**: Indicates an **Error**. Different numbers can be used to represent different types of failure.
 
-> 💡 **Aha! Moment:** When you see an error in your terminal, the computer is often looking at the `return` value of the `main` function. By using `return 1` in our `else` blocks, we can signal to other programs that our code encountered an issue.
+### 🖥️ Monitoring Results with `echo $?`
+In a Unix-based terminal (like the CS50 IDE), you can inspect the exit code of the *most recently executed* command by typing:
+
+```bash
+echo $?
+```
+
+#### 💻 Practical Example: `check.c`
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    if (argc != 2)
+    {
+        printf("Missing command-line argument\n");
+        return 1; // Returns 1 to signal an error
+    }
+    
+    printf("hello, %s\n", argv[1]);
+    return 0; // Returns 0 to signal success
+}
+```
+
+**Testing in Terminal:**
+1.  **Incorrect usage:** Run `./check`. Then run `echo $?`. The output will be `1`.
+2.  **Correct usage:** Run `./check Subhan`. Then run `echo $?`. The output will be `0`.
+
+> 💡 **Aha! Moment:** Automated testing tools like `check50` rely on these exit codes. If your program returns `0` but the output is wrong, or if it crashes and returns a non-zero code, the testing suite knows exactly what happened!
 
 ---
 
