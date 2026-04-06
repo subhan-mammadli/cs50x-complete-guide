@@ -311,3 +311,75 @@ int main(void)
 
 > 💡 **Aha! Moment:** Notice the `int i = 0, n = strlen(s)` syntax in the `for` loop. We calculate the length of the string **once** and store it in `n`. This is a crucial optimization; otherwise, `strlen` would run every single time the loop repeats, which is inefficient for long strings!
 
+
+## ⌨️ Command-Line Arguments
+
+Until now, we have used `get_string` or `get_int` to interact with our programs *after* they started running. **Command-line arguments** allow us to provide data to the program at the exact moment we execute it.
+
+### 🧩 The `main` Function Signature
+To accept arguments, we must change how we define our `main` function. Instead of `void`, we use two specific parameters:
+
+```c
+int main(int argc, string argv[])
+{
+    // Code goes here
+}
+```
+
+1.  **`argc` (Argument Count):** An integer that stores the total number of words typed at the command prompt (including the program name itself).
+2.  **`argv[]` (Argument Vector):** An array of strings containing the actual words typed.
+
+
+
+---
+
+## 📂 Understanding `argv`
+
+The `argv` array always stores the name of the program at index `0`. Any additional words you type follow at index `1`, `2`, and so on.
+
+**Example Command:** `./hello Subhan`
+
+* `argc` will be `2`.
+* `argv[0]` is `"./hello"`.
+* `argv[1]` is `"Subhan"`.
+
+### 💻 Implementation: `greet.c`
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    // Check if the user provided exactly one argument (besides the program name)
+    if (argc == 2)
+    {
+        printf("hello, %s\n", argv[1]);
+    }
+    else
+    {
+        printf("hello, world\n");
+    }
+}
+```
+
+---
+
+## 🚦 Exit Status (Exit Codes)
+
+Every C program returns an integer value when it finishes, known as an **Exit Status**. This tells the operating system whether the program succeeded or failed.
+
+* **`return 0`**: Everything went well (Success).
+* **Non-zero value (e.g., `return 1`)**: Something went wrong (Error).
+
+> 💡 **Aha! Moment:** When you see an error in your terminal, the computer is often looking at the `return` value of the `main` function. By using `return 1` in our `else` blocks, we can signal to other programs that our code encountered an issue.
+
+---
+
+## 🏗️ Strings as 2D Arrays
+
+Since `argv` is an array of strings, and a string is an array of characters, `argv` is essentially a **two-dimensional array**. 
+
+* `argv[1]` gives you the whole string (e.g., `"Subhan"`).
+* `argv[1][0]` gives you the very first character of that string (e.g., `'S'`).
+
