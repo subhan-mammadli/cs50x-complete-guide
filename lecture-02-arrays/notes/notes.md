@@ -415,3 +415,38 @@ Since `argv` is an array of strings, and a string is an array of characters, `ar
 * `argv[1]` gives you the whole string (e.g., `"Subhan"`).
 * `argv[1][0]` gives you the very first character of that string (e.g., `'S'`).
 
+
+## 🔐 Introduction to Cryptography
+
+**Cryptography** is the art and science of scrambling information to hide its contents. It serves as the ultimate practical application for our knowledge of **Arrays**, **Strings**, and **ASCII** manipulation.
+
+### 🔑 Key Terminology
+* **Plaintext:** The original, human-readable message (e.g., `HELLO`).
+* **Ciphertext:** The encrypted, unreadable output (e.g., `IFMMP`).
+* **Cipher:** The specific algorithm or set of rules used to perform the transformation.
+* **Key:** A secret value (often an integer) that determines the specific output of the cipher.
+
+
+
+### 🏛️ Caesar’s Cipher
+A classic example discussed in the lecture is the **Caesar Cipher**, which rotates each alphabetical character by a fixed number of positions ($k$) in the alphabet.
+
+* **The Mathematical Formula:** $c_i = (p_i + k) \pmod{26}$
+* **The Logic:** To implement this in C, we must "map" ASCII values (where 'A' is 65) to alphabetical indices (0–25) to perform the modulo math correctly. After the shift, we map them back to the ASCII range to print the character.
+
+
+
+> ⚠️ **Technical Warning:** When coding a cipher, you must ensure that non-alphabetical characters (like spaces, numbers, or punctuation) remain **unchanged** to keep the structure of the message intact!
+
+---
+
+## 🏁 Lecture 2 Summary: Key Takeaways
+
+As we wrap up the study of **Arrays**, keep these fundamental concepts in your "mental toolbox":
+
+1.  **Memory is Contiguous:** Arrays are stored as a single, back-to-back block in RAM.
+2.  **Strings are Char Arrays:** Every string is an array of characters ending with the invisible **Null Terminator** (`\0`).
+3.  **The Compilation Pipeline:** The process of turning code into an executable involves **Preprocessing**, **Compiling**, **Assembling**, and **Linking**.
+4.  **Command-Line Power:** `argc` and `argv` allow users to pass data directly into the `main` function at the moment the program starts.
+5.  **Exit Status:** Use `return 0` to signal success and non-zero values (like `return 1`) to signal errors, which can be checked in the terminal using `echo $?`.
+
