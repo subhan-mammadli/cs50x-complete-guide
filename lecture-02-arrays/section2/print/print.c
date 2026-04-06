@@ -9,4 +9,5 @@ int main(void)
     {
         printf("%c", text[i]);
     }
+    printf("\n");
 }
