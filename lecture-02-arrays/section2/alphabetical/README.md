@@ -14,11 +14,11 @@ This program determines if a given string is in **alphabetical order**. It lever
 
 1. Compile the program:
    ```bash
-   make alphabet
+   make alphabetical
    ```
 2. Run the executable:
    ```bash
-   ./alphabet
+   ./alphabetical
    ```
 3. **Example:**
    * Input: `abc` → Output: `Yes` (Exit Code: 1)
